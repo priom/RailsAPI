@@ -17,7 +17,7 @@ class TodosController < ApplicationController
 
   def update
     @todo.update(todo_params)
-    json_response(@todo)
+    head :no_content
   end
 
   def destroy
@@ -28,7 +28,7 @@ class TodosController < ApplicationController
 
   private
   def todo_params
-    params.permit(:title, :create_by)
+    params.permit(:title, :created_by)
   end
 
   def set_todo
